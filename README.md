@@ -80,13 +80,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Run
 
-```bash
-streamlit run app.py
-```
-
-Or double-click `run.bat` on Windows (auto-opens browser at `http://localhost:8503`).
 
 ---
 
@@ -104,37 +98,7 @@ Or double-click `run.bat` on Windows (auto-opens browser at `http://localhost:85
 
 ---
 
-## Project Structure
 
-```
-st_JEE/
-├── app.py              # Main application
-├── requirements.txt    # Dependencies
-├── run.bat             # Windows launcher
-├── Dotnetabhishekai.png # Logo
-├── venv/               # Virtual environment
-└── README.md           # This file
-```
-
----
-
-## Customization
-
-### Adding Colleges
-Add entries to the `COLLEGES_DATA` list in `app.py`:
-
-```python
-("College Name", "Type", "Stream", Opening_Rank, Closing_Rank, "City", NIRF_Rank),
-```
-
-- Type: `IIT`, `NIT`, `IIIT`, or `GFTI`
-- Ranks: approximate opening and closing AIR for General category
-
-### Adjusting Category Multipliers
-Edit the `cat_multiplier` dict inside the `predict()` function.
-
-### Adding Streams
-Just add new entries with the stream name — the UI auto-detects all unique streams.
 
 ---
 
