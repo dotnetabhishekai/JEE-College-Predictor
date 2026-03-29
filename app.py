@@ -16,17 +16,31 @@ h1,h2,h3{color:#f8f9fa !important;}
 .metric-label{font-size:14px;opacity:.85;}
 .college-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);
     border-radius:16px;padding:20px;margin:10px 0;color:#f8f9fa;}
-.college-name{font-size:20px;font-weight:bold;color:#a29bfe;}
-.college-detail{font-size:14px;color:#dfe6e9;margin:4px 0;}
+.college-name{font-size:20px;font-weight:bold;color:#6c5ce7;}
+.college-detail{font-size:14px;color:#555;margin:4px 0;}
 .tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:bold;margin:2px;}
 .tag-iit{background:#00b894;color:white;}
 .tag-nit{background:#0984e3;color:white;}
 .tag-iiit{background:#e17055;color:white;}
 .tag-gfti{background:#6c5ce7;color:white;}
 .chance-high{color:#00b894;font-weight:bold;}
-.chance-med{color:#fdcb6e;font-weight:bold;}
+.chance-med{color:#e17055;font-weight:bold;}
 .chance-low{color:#d63031;font-weight:bold;}
 .footer{text-align:center;color:#636e72;padding:20px 0;font-size:13px;}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+    .stApp{background:linear-gradient(135deg,#f5f7fa,#c3cfe2) !important;}
+    h1,h2,h3{color:#2d3436 !important;}
+    .college-card{background:rgba(255,255,255,.85);border:1px solid #dfe6e9;color:#2d3436;}
+    .college-detail{color:#555;}
+    .footer{color:#636e72;}
+}
+/* Streamlit light theme detection */
+[data-testid="stAppViewContainer"][data-theme="light"] .stApp,
+.stApp[style*="background: rgb(255"] {
+    background:linear-gradient(135deg,#f5f7fa,#c3cfe2) !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -239,8 +253,12 @@ def predict(rank, exam_type, streams, college_types, category):
 # ══════════════════════════════════════════════════════════
 # UI
 # ══════════════════════════════════════════════════════════
-st.markdown("#### ⚠️ Cutoff ranks are approximate and based on previous years' trends. Actual cutoffs vary each year.")
-st.markdown("#### ⚠️ This tool is for guidance only — always verify with official JoSAA/CSAB counselling data.")
+st.markdown("""
+<div class="">
+    ⚠️ <span style="color:#d63031;font-weight:bold;">Disclaimer:</span> Cutoff ranks are approximate and based on previous years' trends. Actual cutoffs vary each year.<br>
+    This tool is for guidance only — always verify with official JoSAA/CSAB counselling data.
+</div>
+""", unsafe_allow_html=True)
 st.markdown("# 🎓 JEE College Predictor")
 st.markdown("##### Predict your best-fit colleges based on JEE rank, stream & category")
 st.markdown("---")
@@ -371,8 +389,8 @@ else:
         st.markdown("""
         <div style="text-align:center;padding:40px 0;">
             <div style="font-size:80px;">🎯</div>
-            <h2 style="color:#a29bfe;">Enter your JEE rank to get started</h2>
-            <p style="color:#dfe6e9;font-size:16px;">
+            <h2 style="color:#6c5ce7;">Enter your JEE rank to get started</h2>
+            <p style="color:#555;font-size:16px;">
                 Use the sidebar to enter your rank, select streams, and click <b>Predict Colleges</b>.<br><br>
                 ✅ Covers 23 IITs, 7 NITs, 7 IIITs & GFTIs<br>
                 ✅ Stream-wise cutoff filtering<br>
@@ -386,7 +404,7 @@ else:
 st.markdown("---")
 st.markdown("""
 <div class="footer">
-    ⚠️ Cutoff ranks are approximate and based on previous years' trends. Actual cutoffs vary each year.<br>
+    ⚠️ <span style="color:#d63031;font-weight:bold;">Disclaimer:</span> Cutoff ranks are approximate and based on previous years' trends. Actual cutoffs vary each year.<br>
     Made with ❤️ by <b>dotnetabhishekai</b>
 </div>
 """, unsafe_allow_html=True)
