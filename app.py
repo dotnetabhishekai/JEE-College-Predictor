@@ -240,6 +240,7 @@ def predict(rank, exam_type, streams, college_types, category):
 # UI
 # ══════════════════════════════════════════════════════════
 st.markdown("⚠️ Cutoff ranks are approximate and based on previous years' trends. Actual cutoffs vary each year.")
+st.markdown("⚠️ This tool is for guidance only — always verify with official JoSAA/CSAB counselling data.")
 st.markdown("# 🎓 JEE College Predictor")
 st.markdown("##### Predict your best-fit colleges based on JEE rank, stream & category")
 st.markdown("---")
